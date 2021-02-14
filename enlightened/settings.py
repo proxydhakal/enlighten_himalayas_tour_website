@@ -25,7 +25,8 @@ SECRET_KEY = '4mxh16vt$)=lj-#r2cpw_2dd)id-jx67_xx&d^&bgwo&43b7kx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['206.189.6.22','enlighteninhimalayas.com','www.enlighteninhimalayas.com']
+
 
 
 # Application definition
