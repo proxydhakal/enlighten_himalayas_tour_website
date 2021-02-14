@@ -4,5 +4,14 @@ from apps.blog.models import Blog,Category,Tag
 
 admin.site.register(Category)
 admin.site.register(Tag)
-admin.site.register(Blog)
 
+
+
+class BlogAdmin(admin.ModelAdmin):
+    list_filter = ['category']
+    search_fields = ['title']
+
+
+
+
+admin.site.register(Blog, BlogAdmin)

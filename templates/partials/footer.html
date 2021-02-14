@@ -10,34 +10,34 @@
                                 <img src="{% static 'img/logo1.png' %}" alt="" height="100">
                             </a>
                         </div>
-                        <p>Thamel Kathmandu, Nepal <br> 44600, Thaithy <br>
-                            <a href="tel:+9779849254711">+977 9849254711</a> <br>
-                            <a href="mailto:dhakalsunny11@gmail.com">dhakalsunny11@gmail.com</a>
+                        <p>{{address.office_address|safe}}<br>
+                            <a href="tel:{{address.phone}}">{{address.phone}}</a> <br>
+                            <a href="mailto:{{address.email}}">{{address.email}}</a>
                         </p>
                         <div class="socail_links">
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{social.facebook}}" target="_blank">
                                         <i class="ti-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{social.twitter}}" target="_blank">
                                         <i class="ti-twitter-alt"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{social.instagram}}" target="_blank">
                                         <i class="fa fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="fa fa-pinterest"></i>
+                                    <a href="{{social.linkedin}}" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{social.youtube}}" target="_blank">
                                         <i class="fa fa-youtube-play"></i>
                                     </a>
                                 </li>

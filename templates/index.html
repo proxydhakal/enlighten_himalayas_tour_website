@@ -6,45 +6,21 @@
 {% block main %}
     <div class="slider_area">
         <div class="slider_active owl-carousel">
-            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
+            {% for slider in sliders %}  
+            <div class="single_slider  d-flex align-items-center overlay" style="background-image: url({{slider.slider_image.url}});">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
-                                <h3>Mt. Everest</h3>
-                                <p>World Highest Mountain with height of 8848.48 m.</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
+                                <h3>{{slider.title}}</h3>
+                                <p>{{slider.caption}}</p>
+                                <a href="{{slider.link}}" class="boxed-btn3">Explore Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_2 overlay">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-12 col-md-12">
-                            <div class="slider_text text-center">
-                                <h3>Pokhara</h3>
-                                <p>Beautiful world peace pagyoda at pokhara.</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider  d-flex align-items-center slider_bg_3 overlay">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-12 col-md-12">
-                            <div class="slider_text text-center">
-                                <h3>Kanjing Ri</h3>
-                                <p>Langtang Valley Trek</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
     </div>

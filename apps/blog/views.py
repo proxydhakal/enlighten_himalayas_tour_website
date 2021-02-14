@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from apps.blog.models import Blog, Category, Tag
-
+from apps.setting.models import SEO, SocialSettings, Address, Logo, Title
 
 class BlogList(ListView):
     model = Blog
@@ -13,6 +13,11 @@ class BlogList(ListView):
     def get_context_data(self, **kwargs):
         context = super(BlogList, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
+        context["seo"] = SEO.objects.all().first()
+        context["address"] = Address.objects.all().first()
+        context["logo"] = Logo.objects.all().first()
+        context["title"] = Title.objects.all().first()
+        context["social"] = SocialSettings.objects.all().first()
         return context
 
 class BlogDetail(DetailView):
@@ -26,6 +31,11 @@ class BlogDetail(DetailView):
         self.object.count = self.object.count + 1
         context["blogs"] = Blog.objects.filter().order_by('-count')[:2]
         context['categories']= Category.objects.all()
+        context["seo"] = SEO.objects.all().first()
+        context["address"] = Address.objects.all().first()
+        context["logo"] = Logo.objects.all().first()
+        context["title"] = Title.objects.all().first()
+        context["social"] = SocialSettings.objects.all().first()
         self.object.save()
         return context
 
