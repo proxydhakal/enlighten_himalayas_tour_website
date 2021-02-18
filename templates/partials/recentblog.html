@@ -9,54 +9,23 @@
             </div>
         </div>
         <div class="row">
+            {% for blog in blogs %}
             <div class="col-lg-4 col-md-6">
                 <div class="single_trip">
                     <div class="thumb">
-                        <img src="{% static 'img/trip/1.png' %}" alt="">
+                        <img src="{{blog.cover_image.url}}" alt="">
                     </div>
                     <div class="info">
                         <div class="date">
-                            <span>Oct 12, 2019</span>
+                            <span>{{ blog.created_at|date:"M j, Y" }}</span>
                         </div>
-                        <a href="#">
-                            <h3>Journeys Are Best Measured In
-                                New Friends</h3>
+                        <a href="{{blog.get_absolute_url}}">
+                            <h3>{{blog.title}}</h3>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single_trip">
-                    <div class="thumb">
-                        <img src="{% static 'img/trip/2.png' %}" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="date">
-                            <span>Oct 12, 2019</span>
-                        </div>
-                        <a href="#">
-                            <h3>Journeys Are Best Measured In
-                                New Friends</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single_trip">
-                    <div class="thumb">
-                        <img src="{% static 'img/trip/3.png' %}" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="date">
-                            <span>Oct 12, 2019</span>
-                        </div>
-                        <a href="#">
-                            <h3>Journeys Are Best Measured In
-                                New Friends</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

@@ -2,33 +2,17 @@
 <div class="travel_variation_area">
     <div class="container">
         <div class="row">
+            {% for service in services %}
             <div class="col-lg-4 col-md-6">
                 <div class="single_travel text-center">
                     <div class="icon">
-                        <img src="{% static 'img/svg_icon/1.svg' %}" alt="">
+                        <img src="{{service.service_icon.url}}" alt="" height="80">
                     </div>
-                    <h3>Comfortable Journey</h3>
-                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                    <h3>{{service.title}}</h3>
+                    <p>{{service.description}}</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single_travel text-center">
-                    <div class="icon">
-                        <img src="{% static 'img/svg_icon/2.svg' %}" alt="">
-                    </div>
-                    <h3>Luxuries Hotel</h3>
-                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single_travel text-center">
-                    <div class="icon">
-                        <img src="{% static 'img/svg_icon/3.svg' %}" alt="">
-                    </div>
-                    <h3>Travel Guide</h3>
-                    <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

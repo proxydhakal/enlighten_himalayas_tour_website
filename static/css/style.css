@@ -1344,6 +1344,7 @@ h3 {
 /* line 38, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
 .slider_area .single_slider .slider_text h3 {
   font-family: "Nothing You Could Do", cursive;
+  text-shadow: 5px 0 5px rgb(0 0 0 / 75%);
   font-size: 150px;
   text-transform: capitalize;
   font-weight: 400;
@@ -1356,6 +1357,7 @@ h3 {
   /* line 38, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
   .slider_area .single_slider .slider_text h3 {
     font-size: 50px;
+    text-shadow: 5px 0 5px rgb(0 0 0 / 75%);
   }
 }
 
@@ -1363,6 +1365,7 @@ h3 {
   /* line 38, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
   .slider_area .single_slider .slider_text h3 {
     font-size: 94px;
+    text-shadow: 5px 0 5px rgb(0 0 0 / 75%);
   }
 }
 
@@ -1370,6 +1373,7 @@ h3 {
   /* line 38, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
   .slider_area .single_slider .slider_text h3 {
     font-size: 100px;
+    text-shadow: 5px 0 5px rgb(0 0 0 / 75%);
   }
 }
 
@@ -1377,12 +1381,14 @@ h3 {
   /* line 38, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
   .slider_area .single_slider .slider_text h3 {
     font-size: 120px;
+    text-shadow: 5px 0 5px rgb(0 0 0 / 75%);
   }
 }
 
 /* line 62, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
 .slider_area .single_slider .slider_text p {
   font-size: 20px;
+  text-shadow: 5px 0 5px rgb(0 0 0 / 75%);
   font-weight: 400;
   color: #FFF;
   margin-top: 33px;
@@ -1393,6 +1399,7 @@ h3 {
   /* line 62, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
   .slider_area .single_slider .slider_text p {
     font-size: 18px;
+    text-shadow: 5px 0 5px rgb(0 0 0 / 75%);
     margin-top: 20px;
     margin-bottom: 20px;
   }
@@ -6684,3 +6691,65 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+/* affilate section */
+
+.common-box {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+}
+.bg-light {
+  background-color: #f5fbff!important;
+}
+.pb-10, .py-10 {
+  padding-bottom: 3.125rem!important;
+}
+.pt-10, .py-10 {
+  padding-top: 3.125rem!important;
+}
+.bg-light {
+  background-color: #f8f9fa!important;
+}
+aside {
+  display: block;
+}
+.title {
+  display: block;
+  margin-bottom: 30px;
+  position: relative;
+}
+.affiliation h3 span {
+  display: inline-block;
+  position: relative;
+}
+
+.affiliation .affiliation-list>li {
+  padding: 15px 25px;
+  list-style: none;
+}
+.affiliation .affiliation-list .item {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.affiliation .affiliation-list .item .intro-img {
+width: 75px;
+}
+.affiliation .affiliation-list .item .intro-img img, .affiliation .affiliation-list .item .intro-img svg {
+max-width: none;
+max-height: 60px;
+}
+.affiliation .affiliation-list .item .intro-text {
+padding-left: 20px;
+}
+.affiliation .affiliation-list .item .intro-text h4 {
+font-size: .75rem;
+color: #666;
+line-height: 1.6;
+font-weight: 400;
+margin-bottom: 0;
+}
