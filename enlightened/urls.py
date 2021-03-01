@@ -21,9 +21,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.core.urls')),
     path('blog/', include('apps.blog.urls')),
+    path('country/', include('apps.country.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-
-
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "Enlightened Himalayas Tour Admin"
+admin.site.site_title = "Enlightened Himalayas Tour Admin Portal"
+admin.site.index_title = "Admin | Enlightened Himalayas Tour"

@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.mail import  send_mail
 from django.views.generic import TemplateView
 from apps.blog.models import Blog
+from apps.country.models import Country
 from apps.core.models import Slider,About, Service, Review
 from apps.setting.models import SEO, SocialSettings, Address, Logo, Title
 
@@ -20,6 +21,7 @@ class IndexView(TemplateView):
         context["title"] = Title.objects.all().first()
         context["services"] = Service.objects.all()
         context["reviews"] = Review.objects.all()
+        context["countries"] = Country.objects.filter().order_by('created_at')[:3]
         context["social"] = SocialSettings.objects.all().first()
         return context
 
@@ -40,16 +42,6 @@ class AboutView(TemplateView):
         context["blogs"] = Blog.objects.filter().order_by('-created_at')[:3]
         return context
 
-
-def destination(request):
-    queryset = Blog.objects.all()
-    title = Title.objects.all().first()
-    logo = Logo.objects.all().first()
-    address = Address.objects.all().first()
-    social = SocialSettings.objects.all().first()
-    context = {'blogs': queryset,'title':title, 'logo':logo ,'address': address, 'social': social}
-    template_name='destination.html'
-    return render(request, template_name, context)
 
 def contact(request):
     title = Title.objects.all().first()

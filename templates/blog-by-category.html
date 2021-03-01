@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>blog</h3>
+                        <h3>Blog by Category</h3>
                         <p>Pixel perfect design with awesome contents</p>
                     </div>
                 </div>
@@ -23,6 +23,7 @@
     <!--================Blog Area =================-->
     <section class="blog_area section-padding">
         <div class="container">
+            <h1 class="mb-3">Blogs: {{list_blogs.category}}</h1>
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
@@ -105,52 +106,6 @@
                             {% endfor %}
                             </ul>
                         </aside>
-
-                        <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">Recent Post</h3>
-                            {% for blog in blogs %}
-                            <div class="media post_item">
-                                <img src="{{blog.cover_image.url}}" alt="post" height="100" width="100" class="img-circle">
-                                <div class="media-body">
-                                   <a href="{{blogs.get_absolute_url}}">
-                                      <h3>{{blog.title}}</h3>
-                                   </a>
-                                   <p>{{ blog.created_at|date:"F j, Y" }}</p>
-                                </div>
-                             </div>
-                              {% endfor %}
-                        </aside>
-                        <aside class="single_sidebar_widget tag_cloud_widget">
-                            <h4 class="widget_title">Tag Clouds</h4>
-                            <ul class="list">
-                                <li>
-                                    <a href="#">project</a>
-                                </li>
-                                <li>
-                                    <a href="#">love</a>
-                                </li>
-                                <li>
-                                    <a href="#">technology</a>
-                                </li>
-                                <li>
-                                    <a href="#">travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">restaurant</a>
-                                </li>
-                                <li>
-                                    <a href="#">life style</a>
-                                </li>
-                                <li>
-                                    <a href="#">design</a>
-                                </li>
-                                <li>
-                                    <a href="#">illustration</a>
-                                </li>
-                            </ul>
-                        </aside>
-
-
                         <aside class="single_sidebar_widget instagram_feeds">
                             <h4 class="widget_title">Instagram Feeds</h4>
                             <ul class="instagram_row flex-wrap">

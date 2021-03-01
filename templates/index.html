@@ -76,39 +76,19 @@
                 </div>
             </div>
             <div class="row">
+                {% for country in countries %}
                 <div class="col-lg-4 col-md-6">
                     <div class="single_destination">
                         <div class="thumb">
-                            <img src="{% static 'img/banner/everest_thumbnail.jpg' %}" alt="">
+                            <img src="{{ country.thumbnail_image.url }}" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Nepal <a href="{% url 'destination' %}">  20 Packages</a> </p>
+                            <p class="d-flex align-items-center">{{country.name}} <a href="{% url 'country' %}">  20 Packages</a> </p>
                             
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="{% static 'img/banner/everest_thumbnail.jpg' %}" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Bhutan <a href="{% url 'destination' %}">  03 Packages</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="{% static 'img/banner/everest_thumbnail.jpg' %}" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Tibet <a href="{% url 'destination' %}">  02 Packages</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

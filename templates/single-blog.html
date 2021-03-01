@@ -93,7 +93,7 @@
                            <ul class="list cat-list">
                             {% for category in categories %}
                                 <li>
-                                 <a href="#" class="d-flex">
+                                 <a href="{% url 'blog-cat' category.id %}" class="d-flex">
                                     <p>{{category.title}}</p>
                                     <!-- <p>(37)</p> -->
                                  </a>
@@ -107,7 +107,7 @@
                            <div class="media post_item">
                               <img src="{{blog.cover_image.url}}" alt="post" height="100" width="100" class="img-circle">
                               <div class="media-body">
-                                 <a href="single-blog.html">
+                                 <a href="{{blogs.get_absolute_url}}">
                                     <h3>{{blog.title}}</h3>
                                  </a>
                                  <p>{{ blog.created_at|date:"F j, Y" }}</p>

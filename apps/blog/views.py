@@ -14,6 +14,7 @@ class BlogList(ListView):
         context = super(BlogList, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         context["seo"] = SEO.objects.all().first()
+        context["blogs"] = Blog.objects.filter().order_by('-count')[:2]
         context["address"] = Address.objects.all().first()
         context["logo"] = Logo.objects.all().first()
         context["title"] = Title.objects.all().first()
@@ -29,8 +30,8 @@ class BlogDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         self.object.count = self.object.count + 1
-        context["blogs"] = Blog.objects.filter().order_by('-count')[:2]
         context['categories']= Category.objects.all()
+        context["blogs"] = Blog.objects.filter().order_by('-count')[:2]
         context["seo"] = SEO.objects.all().first()
         context["address"] = Address.objects.all().first()
         context["logo"] = Logo.objects.all().first()
@@ -40,10 +41,22 @@ class BlogDetail(DetailView):
         return context
 
 class CategoryBlogListView(ListView):
-    model =Blog
-    template_name = 'blog_by_category.html'
-    context_object_name = 'categories'
+    model = Blog
+    template_name = 'blog-by-category.html'
+    context_object_name = 'list_blogs'
     ordering =['-created_at']
 
     def get_queryset(self):
         return Blog.objects.filter(category=self.kwargs.get('category')).order_by('-created_at')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+    
+        context['categories']= Category.objects.all()
+        context["seo"] = SEO.objects.all().first()
+        context["address"] = Address.objects.all().first()
+        context["logo"] = Logo.objects.all().first()
+        context["title"] = Title.objects.all().first()
+        context["social"] = SocialSettings.objects.all().first()
+        context["blogs"] = Blog.objects.filter().order_by('-count')[:2]
+        return context

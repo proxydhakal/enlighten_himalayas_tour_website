@@ -16,6 +16,13 @@ class Category(models.Model):
     def __str__(self):                          
         return self.title
 
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular blog-author instance.
+        """
+        return reverse('blog-cat', kwargs={"title": self.title})
+
+
 class Tag(models.Model):
     t_name = models.CharField(max_length=30,unique=True)
     # blog = models.ForeignKey(
