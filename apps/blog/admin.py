@@ -4,10 +4,11 @@ from apps.blog.models import Blog,Category,Tag
 
 admin.site.register(Category)
 admin.site.register(Tag)
+from image_cropping import ImageCroppingMixin
 
 
 
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(ImageCroppingMixin,admin.ModelAdmin):
     list_filter = ['category']
     search_fields = ['title']
 

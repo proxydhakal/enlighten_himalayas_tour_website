@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '4mxh16vt$)=lj-#r2cpw_2dd)id-jx67_xx&d^&bgwo&43b7kx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['206.189.6.22','enlighteninhimalayas.com','www.enlighteninhimalayas.com','127.0.0.1']
+ALLOWED_HOSTS = ['enlightened1.herokuapp.com','*']
 
 
 
@@ -53,7 +53,15 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'solo',
+    'easy_thumbnails',
+    'image_cropping',
+    'contactforms',
 ]
+CONTACTFORM_RECIPIENTS = ['proxydhakal@gmail.com']
+from easy_thumbnails.conf import Settings as thumbnail_settings
+THUMBNAIL_PROCESSORS = (
+    'image_cropping.thumbnail_processors.crop_corners',
+) + thumbnail_settings.THUMBNAIL_PROCESSORS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -147,7 +155,9 @@ EMAIL_HOST= 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = 'Nepal@shok55'
-
+MAILCHIMP_API_KEY = '8d76f466ed942efe2d97855f18d6c3a3-us1'
+MAILCHIMP_DATA_CENTER ='us1'
+MAILCHIMP_EMAIL_LIST_ID = 'c8c30ef326'
 
 
 

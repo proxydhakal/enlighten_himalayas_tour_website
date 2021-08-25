@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.conf import settings
 from django.core.mail import  send_mail
 from django.views.generic import TemplateView
@@ -6,7 +6,9 @@ from apps.blog.models import Blog
 from apps.country.models import Country
 from apps.core.models import Slider,About, Service, Review
 from apps.setting.models import SEO, SocialSettings, Address, Logo, Title
-
+from apps.core.forms import NewsletterForm
+import requests
+import json
 class IndexView(TemplateView):
     model = Slider
     template_name = "index.html"
@@ -57,6 +59,36 @@ def contact(request):
             send_mail(subject,
             message, 
             email,
-            ['shekhardhakal2015@gmail.com'], 
+            ['abc@gmail.com'], 
             fail_silently=False)
     return render(request, template_name, context)
+
+MAILCHIMP_API_KEY = settings.MAILCHIMP_API_KEY
+MAILCHIMP_DATA_CENTER = settings.MAILCHIMP_DATA_CENTER
+MAILCHIMP_EMAIL_LIST_ID =settings.MAILCHIMP_EMAIL_LIST_ID
+api_url = f'https://{MAILCHIMP_DATA_CENTER}.api.mailchimp.com/3.0'
+members_endpoint = f'{api_url}/lists/{MAILCHIMP_EMAIL_LIST_ID}/members/'
+
+def subscribe(email):
+    data = {'email_address':email, 'status':'subscribed',}
+    r = requests.post(members_endpoint, auth =("", MAILCHIMP_API_KEY),data=json.dumps(data))
+    return r.status_code, r.json()
+
+def subscribe_to_newsletter(request):
+    if request.method == 'GET':
+        fm = NewsletterForm()
+        render(request, 'partials/newsletter.html',{'fm':fm})
+
+    if request.method == 'POST':
+        fm = NewsletterForm(request.POST)
+        if fm.is_valid():
+            email =fm.cleaned_data['email']
+            fm.save()
+            subscribe(email)
+            return redirect('/')
+        else:
+            fm = NewsletterForm()
+            return render(request,'partials/newsletter.html',{'fm':fm})
+    return render(request,'partials/newsletter.html',{'fm':fm})
+            
+    

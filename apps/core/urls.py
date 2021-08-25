@@ -5,7 +5,8 @@ from apps.core.views import IndexView,AboutView
 
 urlpatterns = [
     
-    path('', IndexView.as_view(), name='index'),
+    path('', IndexView.as_view(), name='home'),
     path('about/', AboutView.as_view(), name='about'),
     path('contact/', views.contact, name='contact'),
+    path('newsletter/', views.subscribe_to_newsletter, name="subscribe"),
 ]

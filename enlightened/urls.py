@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('apps.core.urls')),
     path('blog/', include('apps.blog.urls')),
     path('country/', include('apps.country.urls')),
+    path('contact/', include('contactforms.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:

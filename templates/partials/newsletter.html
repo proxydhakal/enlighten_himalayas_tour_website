@@ -14,16 +14,13 @@
                     <div class="col-lg-7">
                         <div class="mail_form">
                             <div class="row no-gutters">
-                                <div class="col-lg-9 col-md-8">
-                                    <div class="newsletter_field">
-                                        <input type="email" placeholder="Your mail" >
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4">
-                                    <div class="newsletter_btn">
-                                        <button class="boxed-btn4 " type="submit" >Subscribe</button>
-                                    </div>
-                                </div>
+                                <form method="post" novalidate>
+                                    {% csrf_token %}
+                                    {{ fm }}
+                                    <button type="submit" class="btn">Subscribe</button>
+                                </form>
+
+                                
                             </div>
                         </div>
                     </div>
