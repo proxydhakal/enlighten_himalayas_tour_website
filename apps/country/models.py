@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 from solo.models import SingletonModel
-
+from django.utils.html import mark_safe
 
 class Destinations(SingletonModel):
     name =models.CharField(max_length=255, blank=False, null=False, unique=True)
@@ -36,6 +36,9 @@ class Country(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="80" />' % (self.thumbnail_image.url))
 
     def get_absolute_url(self):
         return reverse("country", kwargs={"slug": self.slug})

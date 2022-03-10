@@ -1,12 +1,13 @@
 from django.shortcuts import render,redirect
 from django.conf import settings
 from django.core.mail import  send_mail
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,CreateView
 from apps.blog.models import Blog
 from apps.country.models import Country
-from apps.core.models import Slider,About, Service, Review
+from apps.core.models import Slider,About, Service, Review,Contact
 from apps.setting.models import SEO, SocialSettings, Address, Logo, Title
-from apps.core.forms import NewsletterForm
+from django.contrib.messages.views import SuccessMessageMixin
+from apps.core.forms import NewsletterForm,ContactForm
 import requests
 import json
 class IndexView(TemplateView):
@@ -91,4 +92,27 @@ def subscribe_to_newsletter(request):
             return render(request,'partials/newsletter.html',{'fm':fm})
     return render(request,'partials/newsletter.html',{'fm':fm})
             
-    
+class ContactCreateView(SuccessMessageMixin,CreateView):
+    model = Contact
+    form_class = ContactForm
+    success_url = '/contact/'
+    template_name='contact.html'
+    success_message = "Message send successfully!!"
+
+
+    def form_valid(self, form):
+        list = form.save(commit=False)
+        list.save()
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        return super(ContactCreateView, self).form_invalid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["seo"] = SEO.objects.all().first()
+        context["address"] = Address.objects.all().first()
+        context["logo"] = Logo.objects.all().first()
+        context["title"] = Title.objects.all().first()
+        context["social"] = SocialSettings.objects.all().first()
+        return context

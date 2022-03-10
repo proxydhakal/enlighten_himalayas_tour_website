@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '4mxh16vt$)=lj-#r2cpw_2dd)id-jx67_xx&d^&bgwo&43b7kx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['enlightened1.herokuapp.com','*']
 
@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['enlightened1.herokuapp.com','*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,15 +54,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'solo',
-    'easy_thumbnails',
-    'image_cropping',
-    'contactforms',
 ]
 CONTACTFORM_RECIPIENTS = ['proxydhakal@gmail.com']
-from easy_thumbnails.conf import Settings as thumbnail_settings
-THUMBNAIL_PROCESSORS = (
-    'image_cropping.thumbnail_processors.crop_corners',
-) + thumbnail_settings.THUMBNAIL_PROCESSORS
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -225,4 +220,30 @@ CKEDITOR_CONFIGS = {
             'elementspath'
         ]),
     }
+}
+
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Enlightened Himalayan Tour",
+
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "Enlightened Himalayan Admin",
+
+    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_brand": "Enlightened Himalayan Admin",
+
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    "site_logo": "img/logo1.png",
+
+    # CSS classes that are applied to the logo above
+    "site_logo_classes": "img-circle",
+
+    # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
+    "site_icon": "img/logo1.png",
+
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to the Enlightened Himalayan Tour",
+
+    # Copyright on the footer
+    "copyright": "Enlightened Himalayan Tour Pvt Ltd",
 }

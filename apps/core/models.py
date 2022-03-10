@@ -1,6 +1,10 @@
+from email import message
+from unicodedata import name
 from django.db import models
-from ckeditor_uploader.fields import RichTextUploadingField
 from solo.models import SingletonModel
+from django.utils.html import mark_safe
+from ckeditor_uploader.fields import RichTextUploadingField
+
 
 # Create your models here.
 class Slider(models.Model):
@@ -14,6 +18,9 @@ class Slider(models.Model):
 
     def __str__(self):
         return self.title
+
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="80" />' % (self.slider_image.url))
 
 class About(SingletonModel):
     
@@ -41,6 +48,9 @@ class Service(models.Model):
     class Meta:
         verbose_name = "Our Service"
 
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="80" />' % (self.service_icon.url))
+
 
     def __str__(self):
         return self.title
@@ -65,3 +75,12 @@ class Newsletter(models.Model):
 
     def __str__(self):
         return self.email
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    message = models.TextField()
+    subject = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+
+    def __str__(self):
+        return self.name

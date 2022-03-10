@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from apps.country.models import Country
 from django.utils.text import slugify
+from django.utils.html import mark_safe
 from ckeditor_uploader.fields import RichTextUploadingField
 
 class Activity(models.Model):
@@ -23,6 +24,8 @@ class Activity(models.Model):
 
     def __str__(self):
         return self.title
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="80" />' % (self.thumbnail_image.url))
 
     def get_absolute_url(self):
         return reverse("activity", kwargs={"slug": self.slug})

@@ -1,6 +1,5 @@
 {% extends "partials/base.html" %} 
 {% load static %}
-{% load cropping %}
 {% block navbar %}
     {% include 'partials/navbar.html' %}
 {% endblock navbar %}
@@ -31,7 +30,7 @@
                         {% for blogs in list_blogs %}
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{% cropped_thumbnail blogs 'cropping' scale=1 %}" alt="">
+                                <img class="card-img rounded-0" src="{{blogs.cover_image.url}}" alt="">
                                 <a href="#" class="blog_item_date">
                                     <h3>{{ blogs.created_at|date:"j" }}</h3>
                                     <p>{{ blogs.created_at|date:"M" }}</p>
