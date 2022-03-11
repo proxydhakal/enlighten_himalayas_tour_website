@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.core.models import Slider,About, Service, Review,Contact
+from apps.core.models import Slider,About, Service, Review,Contact,Newsletter
 from solo.admin import SingletonModelAdmin
 
 admin.site.register(About, SingletonModelAdmin)
@@ -13,6 +13,7 @@ class ServiceAdmin(admin.ModelAdmin):
     
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Review)
+admin.site.register(Newsletter)
 
 class SomeAdmin(admin.ModelAdmin):
     list_display=('name','email','subject','message')

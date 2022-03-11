@@ -197,7 +197,7 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
         # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
         # 'height': 291,
-        # 'width': '100%',
+        'width': '100%',
         # 'filebrowserWindowHeight': 725,
         # 'filebrowserWindowWidth': 940,
         # 'toolbarCanCollapse': True,
@@ -242,7 +242,7 @@ JAZZMIN_SETTINGS = {
     "site_icon": "img/logo1.png",
 
     # Welcome text on the login screen
-    "welcome_sign": "Welcome to the Enlightened Himalayan Tour",
+    "welcome_sign": "Enlightened Himalayan Tour Admin",
 
     # Copyright on the footer
     "copyright": "Enlightened Himalayan Tour Pvt Ltd",

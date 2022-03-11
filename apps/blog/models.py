@@ -4,7 +4,7 @@ from django.utils.html import mark_safe
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
-from image_cropping import ImageRatioField
+
 
 class Category(models.Model):
     title = models.CharField(max_length=30, unique=True)
@@ -52,7 +52,7 @@ class Blog(models.Model):
     slug = models.SlugField(null=True, max_length=255, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    cropping = ImageRatioField('cover_image', '750x375')
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Blog, self).save(*args, **kwargs)
