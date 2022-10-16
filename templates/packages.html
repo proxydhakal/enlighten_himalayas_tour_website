@@ -4,13 +4,13 @@
     {% include 'partials/navbar.html' %}
 {% endblock navbar %}
 {% block main %}
-        <div class="bradcam_area" style="background-image: url({{single_country.cover_image.url}});">
+        <div class="bradcam_area" style="background-image: url({{single_activity.cover_image.url}});">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>{{single_country.name}}</h3>
-                        <p>Pixel perfect design with awesome contents</p>
+                        <h3>{{single_activity.title}}</h3>
+                        <p>{{single_activity.slogan}}</p>
                     </div>
                 </div>
             </div>
@@ -20,18 +20,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h1 class="mb-3">{{single_country.name}}</h1>
-                    <blockquote class="d-flex"><i class="fa fa-quote-left mr-3"></i>{{single_country.country_slogan}}</blockquote>
-                    <p class="justify">{{single_country.country_detail|safe}}</p>
+                    <h1 class="mb-3">{{single_activity.title}}</h1>
+                    <blockquote class="d-flex"><i class="fa fa-quote-left mr-3"></i>{{single_activity.slogan}}</blockquote>
+                    <p class="justify">{{single_activity.description|safe}}</p>
                 </div>
-                {% for activity in activities %}
+                {% for package in packages %} 
                 <div class="col-lg-4 col-md-6">
                     <div class="single_destination">
                         <div class="thumb">
-                            <img src="{{activity.thumbnail_image.url}}" alt="">
+                            <img src="{{package.thumbnail_image.url}}" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">{{activity.title}} <a href="{% url 'activity' activity.a_slug %}">  07 Places</a> </p> 
+                            <p class="d-flex align-items-center">{{package.title}} <a href="{{package.get_absolute_url}}">  07 Places</a> </p> 
                         </div>
                     </div>
                 </div>

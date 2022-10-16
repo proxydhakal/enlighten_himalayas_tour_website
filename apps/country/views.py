@@ -33,8 +33,13 @@ class CountryDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        query = self.kwargs.get('slug')
         context["blogs"] = Blog.objects.filter().order_by('-created_at')[:3]
-        context["activities"] = Activity.objects.filter(country=1)
+        context["activities"] = Activity.objects.raw('''SELECT c.*, a.slug as a_slug , a.*
+                                                        FROM country_country as c
+                                                        INNER JOIN activities_activity as a
+                                                        ON c.id=a.country_id
+                                                        WHERE c.slug = %s;''',[query])
         context["seo"] = SEO.objects.all().first()
         context["address"] = Address.objects.all().first()
         context["logo"] = Logo.objects.all().first()

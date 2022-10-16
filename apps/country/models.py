@@ -41,4 +41,4 @@ class Country(models.Model):
         return mark_safe('<img src="%s" width="80" />' % (self.thumbnail_image.url))
 
     def get_absolute_url(self):
-        return reverse("country", kwargs={"slug": self.slug})
+        return reverse("countrydetail", kwargs={"slug": self.slug})

@@ -26,12 +26,6 @@ class Category(models.Model):
 
 class Tag(models.Model):
     t_name = models.CharField(max_length=30,unique=True)
-    # blog = models.ForeignKey(
-    #     Blog,
-    #     on_delete=models.CASCADE,
-    #     related_name="tags",
-    #     related_query_name="tag",
-    # )
     class Meta:
         ordering =['t_name']
         verbose_name_plural = "tags"        

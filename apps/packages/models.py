@@ -31,4 +31,4 @@ class Package(models.Model):
         return mark_safe('<img src="%s" width="80" />' % (self.thumbnail_image.url))
 
     def get_absolute_url(self):
-        return reverse("package", kwargs={"slug": self.slug})
+        return reverse("packagedetail", kwargs={"slug": self.slug})

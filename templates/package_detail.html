@@ -1,0 +1,236 @@
+{% extends "partials/base.html" %} 
+{% load static %}
+{% block navbar %}
+    {% include 'partials/navbar.html' %}
+{% endblock navbar %}
+{% block main %}
+        <div class="bradcam_area" style="background-image: url({{packages_detail.cover_image.url}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text text-center">
+                        <h3>{{packages_detail.title}}</h3>
+                        <p>{{packages_detail.slogan}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="package-nav natural" style="top: auto;">
+        <div class="container">
+           <ul class="nav nav-tabs package-tab" id="myTab" role="tablist">
+              <li class="nav-item">
+                 <a class="nav-link" href="#overview">Overview</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="#itinerary">Itinerary</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="#cost_details">What's Included</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="#useful-info">Useful Information</a>
+              </li>
+           </ul>
+        </div>
+     </aside>
+    <div class="popular_destination_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <h1 class="mb-3">{{packages_detail.title}}</h1>
+                    <blockquote class="d-flex"><i class="fa fa-quote-left mr-3"></i>{{packages_detail.slogan}}</blockquote>
+                    <div class="overview mb-5" id="overview">
+                        <h3>Trip Overview</h3>
+                        <p class="justify">{{packages_detail.description|safe}}</p>
+                    </div>
+                    <div class="common-module highlight mb-5">
+                        <h3>Trip Highlights</h3>
+                        <ul>
+                           <li>The Shortest possible trekking option for everest base camp.</li>
+                           <li>Spectacular views from the helicopter over the world's highest mountain i.e. Mt. Everest.</li>
+                           <li>Hike to the Everest base camp and return via Helicopter.</li>
+                           <li>Enjoy the adventure of world highest Sagarmatha National Park</li>
+                           <li>First a couple of days you will set Mt. Khande and Thamserku mountain.</li>
+                           <li>Beautiful experience with Sherpa Community via Everest region.</li>
+                           <li>Authentic Nepali Cuisine like Dal, Bhat and Local food during trekking trail.</li>
+                           <li>Explore the largest and oldest Tengboche Buddhist monastery.</li>
+                           <li>Stunning views of the Himalayas range from Kalapatthar's point of view.</li>
+                           <li>Majestic views of Mt. Everest (8848 m), Mt. Lhotse (8516 m), Mt. Nuptse (7861 m), Mt. Cho Oyu (8201 m), Mt. Amadablam (6812 m) and many more.</li>
+                           <li>&nbsp;Lifetime unforgettable Himalayan adventure trek with local guide&nbsp;</li>
+                        </ul>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div id="itinerary" class="mb-5">
+                        <div class="common-module itinerary">
+                           <div class="d-flex align-items-center justify-content-between mb-4 itinerary-header">
+                              <h2 class="mb-lg-0"><i class="icon-itinerary text-primary"></i>Itinerary </h2>
+                              <span class="expand-all" style="">Open All Days<i class="fa fa-plus"></i></span>
+                              <span class="collapse-all" style="display: none;">Close All Days<i class="fa fa-minus"></i></span>
+                           </div>
+                           <div class="accordion" id="itinerary_accordion">
+                              <div class="card mb-3">
+                                 <div class="card-header" id="itinerary_heading1">
+                                    <h5 class="collapsed" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                       <b>Day 01: </b>Arrival from Kathamndu Airport. Overnight at Kathmandu Hotel.
+                                    </h5>
+                                 </div>
+                                 <div class="collapse" id="collapseExample">
+                                    <div class="card-body">
+                                       <p>Top of the World Adventure is one and only travel agency in Tribhuvan International Airport arrival. After collecting your baggage you will get our agency in international arrival. Our airport staff will brief you regarding the trip and will provide you vouchers. Our agency have special space at arrival parking, you will be transferred to hotel from arrival gate. In the evening our office representative will meet you and invite you for welcome dinner.</p>
+                                       <ul class="itinerary-meta">
+                                          <li><span>Meals:</span> Dinner</li>
+                                          <li><span>Accommodation:</span> Hotel</li>
+                                          <li><span>Place:</span> Kathmandu</li>
+                                          <li><span>Altitude:</span> 1300</li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                    <div id="cost_details" class="mb-5">
+                        <div class="cost_dtl common-module">
+                           <h2>Cost Details</h2>
+                           <div class="cost_detail cost_include  common-module">
+                              <h4>Cost Includes</h4>
+                              <ul>
+                                 <li>Arrival and departure by private vehicle</li>
+                                 <li>Kathmandu hotel with Breakfast</li>
+                                 <li>Helicopter Flight from near Everest base camp to Lukla</li>
+                                 <li>Kathmandu-Lukla-Kathmandu flight fares</li>
+                                 <li>TIMS Fee- Trekkers' Information Management System.</li>
+                                 <li>Sagarmatha national park (Mt. Everest) trek permit fee.</li>
+                                 <li>Government taxes &amp; office service charge.</li>
+                                 <li>All necessary permits (Local &amp; National Park)</li>
+                                 <li>Trekking guide (Food, accommodation, salary, insurance)</li>
+                                 <li>Teahouse Accomodation in Mountain</li>
+                                 <li>Porter</li>
+                                 <li>All meals (Breakfast, lunch and dinner)</li>
+                                 <li>First aid tool box</li>
+                              </ul>
+                           </div>
+                           <div class="cost_detail cost_exclude">
+                              <h4>Cost Excludes:</h4>
+                              <ul>
+                                 <li>Bar bills</li>
+                                 <li>Visa fee</li>
+                                 <li>International flight fare</li>
+                                 <li>Travels insurance</li>
+                                 <li>Trekking equipment&nbsp;</li>
+                                 <li>Tips</li>
+                              </ul>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="common-module mb-lg-0" id="useful-info">
+                        <h2>Useful info</h2>
+                        <p class="justify">On 7 days Everest base camp trek, you will be walking with an average of 13&nbsp;to 15&nbsp;km a day in average, &nbsp;Although this does not sound very long, the terrain can often be steep, rocky, slow going and, depending on the season, icy and snowy. You can make your Everest base camp trek&nbsp;easier with proper training and reaching a fitness level&nbsp;capable&nbsp;of trekking with a pack on your back. This trek starts at Lukla just below 3,000 meters, the trek steadily winds its way upwards to Everest Base Camp at 5,364 meters. At 3,000 meters, Lukla is already very high and you will need to take the trek slowly if you are to reach Base Camp safely. It is very important that you seek medical advice prior to trekking at these altitudes and research altitude sickness to make yourself aware of the symptoms and treatments available. Please also note that there is no correlation between fitness, age or gender and altitude sickness – everyone is at risk.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 sidebar">
+                     <div class="change-position-down-lg">
+                        <div class="sidebar-module booking-module">
+                           <div class="highlighted-fact">
+                              <span class="ribbon"></span>
+                              <div class="price">
+                                 <span class="content-title">Price from</span>
+                                 <span class="content">
+                                 <i class="normal">US$ 2250</i> (P.P) <br>
+                                 <i class="strike">US$ 2500</i>
+                                 </span>
+                              </div>
+                              <div>
+                                 <a href="javascript:void(0)" class="collapsible collapsed btn btn-primary btn-sm" data-toggle="collapse" data-target="#collapseGroupDiscount" aria-expanded="false">Group
+                                 Discount</a>
+                              </div>
+                           </div>
+                           <div class="cost-sadule-wrapper collapse" id="collapseGroupDiscount">
+                              <div class="cost-sadule table-responsive">
+                                 <table class="table table-condensed table-stripped">
+                                    <thead>
+                                       <tr>
+                                          <td>No of people</td>
+                                          <td align="right">Price P.P</td>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr>
+                                          <td>2 - 6</td>
+                                          <td align="right"><span class="price"> US$ 1850</span></td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                           <ul class="trip-facts">
+                              <li>
+                                 <div class="icon-wrap"><i class="fa fa-map-marker"></i></div>
+                                 <div class="intro-text">Destination<b>Nepal</b> </div>
+                              </li>
+                              <li>
+                                 <div class="icon-wrap"><i class="fa-solid fa-mountain-sun"></i></div>
+                                 <div class="intro-text">Difficulty<b>Moderate <i class="fa fa-hard" tabindex="0" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="The moderate grade includes 1 week to 15 days itinerary. It can reach up to 5000 meters altitude range, but the trails will be moderate (nor easy, nor tough). High altitude may matter on walking speed and distance. You need to have acclimatization over 3000 meters." data-original-title="" title=""></i> </b> </div>
+                              </li>
+                              <li>
+                                 <div class="icon-wrap"><i class="fa-sharp fa-solid fa-person-hiking"></i></div>
+                                 <div class="intro-text">Trip Style<b>Trekking</b> </div>
+                              </li>
+                              <li>
+                                 <div class="icon-wrap"><i class="fa fa-car"></i></div>
+                                 <div class="intro-text">Transportation<b>Helicopter</b> </div>
+                              </li>
+                              <li>
+                                 <div class="icon-wrap"><i class="fa fa-cutlery"></i></div>
+                                 <div class="intro-text">Meal <b>Breakfast + Lunch + Dinner</b> </div>
+                              </li>
+                              <li>
+                                 <div class="icon-wrap"><i class="fa fa-bed"></i></div>
+                                 <div class="intro-text">Accomodation<b>Hotel + Teahouses + Lodges</b> </div>
+                              </li>
+                              <li>
+                                 <div class="icon-wrap"><i class="fa fa-area-chart"></i></div>
+                                 <div class="intro-text">Max Altitude<b>5364</b> </div>
+                              </li>
+                           </ul>
+                           <a href="https://www.topoftheworldadv.com/trip-booking?trip_id=63" class="btn btn-secondary rounded-pill shadow btn-block text-uppercase btn-md">book this trip</a>
+                           <a href="https://www.topoftheworldadv.com/customize-trip" class="btn btn-primary rounded-pill shadow btn-block text-uppercase btn-md">Customize My
+                           Trip</a>
+                        </div>
+                     </div>
+                     <div class="sidebar-module trip-map">
+                        <div class="intro-map">
+                           <a data-fancybox="" href="https://www.topoftheworldadv.com/uploads/package/map/ebc_trek_map.jpg">
+                           <img src="https://www.topoftheworldadv.com/uploads/package/map/ebc_trek_map.jpg" alt="7 days Everest Base Camp Trek map">
+                           </a> 
+                        </div>
+                     </div>
+                     <div class="sidebar-module side-nav">
+                        <h3 class="module-title">Information</h3>
+                        <ul>
+                            <li><a href="https://www.topoftheworldadv.com/infos/trip-grade" target="_blank" rel="nofollow">Trip Grade</a></li>
+                            <li><a href="https://www.topoftheworldadv.com/faqs/everest-region-faqs" target="_blank" rel="nofollow">Everest Region FAQ's</a></li>
+                            <li><a href="https://www.topoftheworldadv.com/faqs/trekking-and-accessories-faqs" target="_blank" rel="nofollow">Trekking and Accessories FAQ's</a></li>
+                            <li><a href="https://www.topoftheworldadv.com/equipments/medicine-and-first-aid" target="_blank" rel="nofollow">Medicine and First Aid</a></li>
+                            <li><a href="https://www.topoftheworldadv.com/equipments/trekking-essential-equipments" target="_blank" rel="nofollow">Trekking Essential Equipment's</a></li>
+                        </ul>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+{% endblock main %}
+{% include 'partials/newsletter.html' %}
+{% block recentblog %}
+    {% include 'partials/recentblog.html' %}
+{% endblock recentblog %}
+{% block affilate %}
+    {% include 'partials/affilate.html' %}
+{% endblock affilate %}
+{% block footer %}
+    {% include 'partials/footer.html' %}
+{% endblock footer %}
+{% block search_model %}
+    {% include 'partials/search_model.html' %}
+{% endblock search_model %}
