@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-
+from decouple import config, Csv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4mxh16vt$)=lj-#r2cpw_2dd)id-jx67_xx&d^&bgwo&43b7kx'
 
+SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['enlightened1.herokuapp.com','*']
+DEBUG = config('DEBUG', default=False, cast=bool)
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'solo',
 ]
 CONTACTFORM_RECIPIENTS = ['proxydhakal@gmail.com']
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -98,19 +97,16 @@ DATABASES = {
     }
 }
 
-# DATABASES = {  
-#     'default': {  
-#         'ENGINE': 'django.db.backends.mysql',  
-#         'NAME': 'enlightened',  
-#         'USER': 'root',  
-#         'PASSWORD': '',  
-#         'HOST': '127.0.0.1',  
-#         'PORT': '3306',  
-#         'OPTIONS': {  
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
-#         }  
-#     }  
-# }  
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config("DB_NAME"),
+#         'USER': config("DB_USER"),
+#         'PASSWORD': config("DB_PASSWORD"),
+#         'HOST': config("DB_HOST"),
+#         'PORT': 5432,
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -157,16 +153,21 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = BASE_DIR / 'static/files'
 MEDIA_URL = '/media/'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = 'proxydhakal@gmail.com'
-EMAIL_HOST= 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = 'Nepal@shok55'
-MAILCHIMP_API_KEY = '8d76f466ed942efe2d97855f18d6c3a3-us1'
-MAILCHIMP_DATA_CENTER ='us1'
-MAILCHIMP_EMAIL_LIST_ID = 'c8c30ef326'
 
+
+#Email configuration 
+EMAIL_USE_TLS = config("EMAIL_USE_TLS")
+# EMAIL_USE_SSL = config("EMAIL_USE_SSL")
+EMAIL_BACKEND = config("EMAIL_BACKEND")
+EMAIL_HOST = config("EMAIL_HOST")
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_PORT =config("EMAIL_PORT")
+
+
+MAILCHIMP_API_KEY = config("MAILCHIMP_API_KEY")
+MAILCHIMP_DATA_CENTER = config("MAILCHIMP_DATA_CENTER")
+MAILCHIMP_EMAIL_LIST_ID =config("MAILCHIMP_EMAIL_LIST_ID")
 
 
 
